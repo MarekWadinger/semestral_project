@@ -453,8 +453,8 @@ def tidy_individual_detection(data: Union[DataFrame, str, None] = None, train_si
     df_modules, df_yields, df_outliers_temp, df_scores_temp = tidy_detection(data, train_size, outliers_rate,
                                                                              classifier)
 
-    df_outliers = pd.DataFrame(index=df_modules.index)
-    df_scores = pd.DataFrame(index=df_modules.index)
+    df_outliers = pd.DataFrame(index=df_modules.index, columns=df_modules.columns)
+    df_scores = pd.DataFrame(index=df_modules.index, columns=df_modules.columns)
 
     for i in df_modules.columns.values:
         mean_score = df_scores_temp[i].mean()
